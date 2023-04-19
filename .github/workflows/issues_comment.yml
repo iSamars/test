@@ -1,7 +1,7 @@
 name: telegram message on issue comment action
 on:
   issue_comment:
-    types: created, deleted, edited
+    types: created
 jobs:
 
   build:
