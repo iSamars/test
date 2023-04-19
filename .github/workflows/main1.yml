@@ -22,7 +22,7 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
             ${{ github.actor }} #${{ github.event_name }}:
-            Commit message: ${{ issue.id }}
+            Commit message: ${{ github.event_path }}
             
             Repository: ${{ github.repository }}
             
