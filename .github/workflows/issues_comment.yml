@@ -18,7 +18,7 @@ jobs:
           message: |
             #${{ github.event_name }}
             @${{ github.actor }} ${{ github.event.action }} [${{ github.event_name }}](${{ github.event.comment.url }})
-            on issue: [${{ github.event.issue.title }}] (${{ github.event.issue.url }})
+            on issue: [${{ github.event.issue.title }}](${{ github.event.issue.url }})
             
             `${{ github.event.comment.body }}`
             
