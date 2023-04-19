@@ -18,6 +18,7 @@ jobs:
           message: |
             #${{ github.event_name }}
             @${{ github.actor }} ${{ github.event.action }} ${{ github.event_name }}: [${{ github.event.issue.title }}](${{ github.event.issue.html_url }})
+            Assigned to: @${{ github.event.issue.assignee.id }} ${{ github.event.issue.assignee.login }} ${{ github.event.issue.assignee.name }}
             
             `${{ github.event.issue.body }}`
             
