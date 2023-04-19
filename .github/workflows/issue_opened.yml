@@ -14,9 +14,10 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           format: markdown
+          disable_web_page_preview: true
           message: |
             #${{ github.event_name }}
             @${{ github.actor }} ${{ github.event.action }} ${{ github.event_name }}: [${{ github.event.issue.title }}](${{ github.event.issue.html_url }})    
-            ||```${{ github.event.issue.body }}```||
+            `${{ github.event.issue.body }}`
             
             Repository: ${{ github.repository }}
