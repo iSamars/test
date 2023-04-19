@@ -1,7 +1,7 @@
 name: telegram message on pull_reques
 on:
   pull_request:
-    types: [opened, closed, edited, ready_for_review, review_requested, reopened]
+    types: [opened, closed, edited, reopened]
 jobs:
 
   build:
@@ -19,5 +19,7 @@ jobs:
             #${{ github.event_name }}
             @${{ github.actor }} ${{ github.event.action }} [${{ github.event.pull_request.title }} #${{ github.event.pull_request.number }}](${{ github.event.pull_request.url }})
             Label: ${{ github.event.pull_request.labels[0].name }}
+            
+            `${{ github.event.pull_request.body }}`
             
             Repository: ${{ github.repository }}
