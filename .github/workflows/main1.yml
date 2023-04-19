@@ -21,8 +21,9 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            ${{ github.actor }} #${{ github.event_name }}:
-            Commit message: ${{ github.event_path }}
+            #${{ github.event_name }}
+            Was made by ${{ github.actor }}
+            Commit message: ${{ github.event }}
             
             Repository: ${{ github.repository }}
             
