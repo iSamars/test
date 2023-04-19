@@ -17,8 +17,8 @@ jobs:
           disable_web_page_preview: true
           message: |
             #${{ github.event_name }}
-            @${{ github.actor }} ${{ github.event.action }} [${{ github.event_name }}](${{ github.event.issue_comment.url }})
-            on issue: [${{ github.event.issue_comment.issue.title }}](${{ github.event.issue_comment.issue.html_url }})
+            @${{ github.actor }} ${{ github.event.action }} [${{ github.event_name }}] (${{ github.event.comment.url }})
+            on issue: [${{ github.event.comment.issue.title }}] (${{ github.event.comment.issue.html_url }})
             
             `${{ github.event.issue_comment.body }}`
             
