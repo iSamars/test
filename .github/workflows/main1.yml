@@ -21,7 +21,7 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            ${{ github.actor }} created commit:
+            ${{ github.actor }} #${{ github.event_name }}:
             Commit message: ${{ issue.id }}
             
             Repository: ${{ github.repository }}
