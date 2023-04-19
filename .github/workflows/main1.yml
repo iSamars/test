@@ -19,7 +19,7 @@ jobs:
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
-          token: ${{ secrets.TELEGRAM_TOKEN }}
+          token: ${{ secrets.TELEGRAM_TOKEN1 }}
           message: |
             #${{ github.event_name }} ${{ github.event.action }}
             by ${{ github.actor }}
