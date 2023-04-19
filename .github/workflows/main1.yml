@@ -23,7 +23,7 @@ jobs:
           message: |
             #${{ github.event_name }}
             Was made by ${{ github.actor }}
-            Commit message: ${{ github.event }}
+            Commit message: ${{ github.event.action }}
             
             Repository: ${{ github.repository }}
             
