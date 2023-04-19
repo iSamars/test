@@ -1,0 +1,25 @@
+name: telegram message on pull_reques
+on:
+  pull_request:
+    types: [opened, closed, edited, ready_for_review, review_requested, reopened]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: send telegram message on pull_reques action
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.CHAT }}
+          token: ${{ secrets.TOKEN }}
+          format: markdown
+          disable_web_page_preview: true
+          message: |
+            #${{ github.event_name }}
+            @${{ github.actor }} ${{ github.event.action }} [${{ github.event.pull_request.title }} #${{ github.event.pull_request.number }}](${{ github.event.pull_request.url }})
+            Label: ${{ github.event.pull_request.labels[0].name }}
+            
+            `${{ github.event.comment.body }}`
+            
+            Repository: ${{ github.repository }}
