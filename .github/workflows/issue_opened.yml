@@ -1,0 +1,24 @@
+name: telegram message
+on:
+  issues:
+    types: [opened, edited, pinned, closed, reopened, assigned, labeled]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: send telegram message on new issue
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            #${{ github.event_name }} ${{ github.event.action }}
+            by @${{ github.actor }}
+            [Open ${{ github.event_name }}](${{ github.event.issue.html_url }})
+            
+            
+            Repository: ${{ github.repository }}
+            
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
