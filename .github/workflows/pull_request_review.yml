@@ -1,0 +1,25 @@
+name: telegram message on issue comment action
+on:
+  pull_request_review:
+    types: [submitted, edited, dismissed]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: send telegram message on issue comment action
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.CHAT }}
+          token: ${{ secrets.TOKEN }}
+          format: markdown
+          disable_web_page_preview: true
+          message: |
+            #${{ github.event_name }}
+            @${{ github.actor }} ${{ github.event.action }} [${{ github.event_name }}](${{ github.event.review.html_url }})
+            on pull_request: [${{ github.event.pull_request.title }}](${{ github.event.pull_request.html_url }})
+            
+            `${{ github.event.review.body }}`
+            
+            Repository: ${{ github.repository }}
